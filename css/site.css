@@ -13,10 +13,10 @@
 
 html,
 body {
-    height:  100%;
+    height: 100%;
 }
 
-body { 
+body {
     display: flex;
     flex-direction: column;
 }
@@ -29,33 +29,33 @@ body {
 /* footer {
     flex-shrink: 0;
  } */
- /* Start: nav bar overrides */
+/* Start: nav bar overrides */
 
- #mainNav {
+#mainNav {
     background-color: var(--tr-primary-color);
 }
 
- #mainNav button {
-    border-color:  var(--tr-secondary-color);
- }
+#mainNav button {
+    border-color: var(--tr-secondary-color);
+}
 
- .navbar-toggler-icon-ms {
+.navbar-toggler-icon-ms {
     color: var(--tr-navbar-toggler-color);
     font-size: 1.5rem;
- }
+}
 
- .navbar-toggler {
+.navbar-toggler {
     color: var(--tr-navbar-toggler-glow)
- }
+}
 
- /* start footer */
+/* start footer */
 
- footer {
+footer {
     background-color: var(--tr-primary-color);
     color: var(--tr-light-color);
 }
 
-.socialicon{
+.socialicon {
     font-size: 2rem;
     padding-left: 5rem;
     color: var(--tr-light-color);
@@ -77,10 +77,31 @@ body {
 }
 
 .checkList>li i {
-    color : var(--tr-secondary-color);
+    color: var(--tr-secondary-color);
     padding-right: .5rem;
 }
-.devIcons{
+
+.devIcons {
     font-size: 4rem;
     padding-left: .5rem;
+}
+
+.num {
+    background-color: aqua !important;
+    border: 1px solid;
+}
+
+.fizz {
+    background-color: lightcoral !important;
+    border: 1px solid;
+}
+
+.buzz {
+    background-color: cadetblue !important;
+    border: 1px solid;
+}
+
+.fizzBuzz {
+    background-color: #ff993b !important;
+    border: 1px solid;
 }
