@@ -87,21 +87,36 @@ footer {
 }
 
 .num {
-    background-color: aqua !important;
+    background-color: rgb(118, 227, 222) !important;
+    /* background-color: aqua !important; */
     border: 1px solid;
 }
 
 .fizz {
-    background-color: lightcoral !important;
+    background-color: rgb(152, 210, 149) !important;
+    /* background-color: lightcoral !important; */
     border: 1px solid;
 }
 
 .buzz {
-    background-color: cadetblue !important;
+    background-color: rgb(80, 166, 181) !important;
+    /* background-color: cadetblue !important; */
     border: 1px solid;
 }
 
 .fizzBuzz {
-    background-color: #ff993b !important;
+    background-color: #f5dc4d !important;
+    /* background-color: #ff993b !important; */
     border: 1px solid;
+}
+.btnGo{
+    background-color: #3eb0af;
+    /* background-origin: padding-box; */
+}
+.fizzBuzzSpan{
+    color: #4b9392;
+}
+.inpitStyle{
+    border-color: #296968;
+    ;
 }

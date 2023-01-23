@@ -23,7 +23,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="mainNav">
             <div class="container">
                 <a class="navbar-brand" href="#index.html">
-                    <img src="/img/Open (7).png" height="30" alt="">
+                    <img src="/img/Open (6).png" height="50" alt="">
                     App Name
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -36,13 +36,13 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="/index.html">Home</a>
+                            <a class="nav-link " href="/index.html">Home</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="app.html">The App</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/code.html">The code</a>
+                            <a class="nav-link active" aria-current="page"  href="/code.html">The code</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">The Repo</a>
@@ -59,30 +59,119 @@
         </nav>
     </header>
 
-
     <main class="content container">
 
         <div class="content container">
-            <div class="row">
+            <div class="row row-cols-1">
                 <h1 class="border-bottom border-2 border-dark">The code</h1>
-                <div class="col col-12 col-lg">
+                <div class="col col-md-8 col-lg">
                     <pre class="line-numbers">
                         <code class="language-js">
-                            function displayMessage(params) {
-                                let msg = document.getElementById("message").value;
-                            
-                                Swal.fire(
-                                    {
-                                        backdrop: false,
-                                        title: "AppName",
-                                        text: msg
+                            // This function is responsible for receiving and responding to user input
+                            function getValue() {
+                                //get user input from the page
+                                let fizzValue = document.getElementById('fizzValue').value;
+                                let buzzValue = document.getElementById('buzzValue').value;
+                                let stopValue = document.getElementById('stopValue').value;
+
+                                //parse our inputs as number
+                                fizzValue = parseInt(fizzValue);
+                                buzzValue = parseInt(buzzValue);
+                                stopValue = parseInt(stopValue);
+
+                                //verify our inputs are numbers
+                                if (Number.isInteger(fizzValue) && Number.isInteger(buzzValue) && Number.isInteger(stopValue)) {
+
+                                    if(stopValue > 5000) {
+                                        Swal.fire(
+                                            {
+                                                icon: 'error',
+                                                title: 'Oops',
+                                                text: 'Please enter valid number!'
+                                            }
+                                        )
+                                    }else if(fizzValue === 0 || buzzValue === 0){
+                                        Swal.fire(
+                                            {
+                                                icon: 'error',
+                                                title: 'Oops',
+                                                text: 'Fizz or Buzz cannot be 0!'
+                                            }
+                                        )
+                                    }else{
+
+                                        //if they are, generate our numbers
+                                        let numberArray = generateFizzBuzz(fizzValue, buzzValue, stopValue);
+                                        //display numbers on the page
+                                        displayFizzBuzz(numberArray);
                                     }
-                                )
+
+                                }  else {
+                                    //if inputs are not numbers, tell user to insert integer
+                                    Swal.fire(
+                                        {
+                                            icon: 'error',
+                                            title: 'Oops',
+                                            text: 'Only integer are allow for Hondo!'
+                                        }
+                                    )
+                                }
+                            }
+
+                            // This function is responsible for generating the values you will display
+                            function generateFizzBuzz(fizzValue, buzzValue, stopValue) {
+
+                                let results = []
+
+                                for (let i = 0; i < stopValue; i++) {
+                                    let arrElement = i + 1
+
+                                    if (arrElement % fizzValue === 0 && arrElement % buzzValue === 0) {
+                                        results[i] = 'FizzBuzz'
+                                    } else if (arrElement % fizzValue === 0) {
+                                        results[i] = 'Fizz'
+                                    } else if (arrElement % buzzValue === 0) {
+                                        results[i] = 'Buzz'
+                                    } else {
+                                        results[i] = arrElement;
+                                    }
+                                }
+                                return results;
+                            }
+                            //This function is responsible for displaying the generated values on the page
+                            function displayFizzBuzz(arr) {
+                                let tableBody = document.getElementById('results');
+                                let tableHtml = '';
+
+                                for (let i = 0; i < arr.length; i++) {
+                                    let value = arr[i]
+                                    let className = 'num';
+
+                                    if (value === "Fizz") {
+                                        className = 'fizz';
+                                    } else if (value === "Buzz") {
+                                        className = 'buzz';
+                                    } else if (value === "FizzBuzz") {
+                                        className = "fizzBuzz"
+                                    }
+
+                                    if (i % 5 === 0) {
+                                        tableHtml += '<tr>'
+                                    }
+
+                                    let tableRow = `<td class="${className}">${value}</td>`;
+                                    tableHtml = tableHtml + tableRow;
+
+                                    if ((i + 1) % 5 === 0) {
+                                        tableHtml += '</tr>';
+                                    }
+                                }
+                                tableBody.innerHTML = tableHtml;
                             }
                         </code>
                     </pre>
                 </div>
-                <div class="col col-12 col-lg-4">
+                <div class="col col-md-4 col-lg-4">
                     <p>The code is structured in one function</p>
                     <p><code>displayMessage</code></p>
                     <p>Print out the message</p>
@@ -97,7 +186,7 @@
                     &copy; Tatyana Romanova
                 </div>
                 <div class="col-12 text-center">
-                    <img src="/img/Open (7).png" height=50>
+                    <img src="/img/Open (6).png" height=50>
                 </div>
                 <div class="col-12 text-center text-lg-end">
                     <a href="#"><i class="bi bi-instagram socialicons"></i></a>
