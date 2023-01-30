@@ -42,7 +42,7 @@
                             <a class="nav-link" href="app.html">FizzBuzz</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link active" aria-current="page"  href="/code.html">The Code</a>
+                            <a class="nav-link active" aria-current="page" href="/code.html">The Code</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">The Repo</a>
@@ -172,9 +172,46 @@
                     </pre>
                 </div>
                 <div class="col col-md-4 col-lg-4">
-                    <p>The code is structured in one function</p>
-                    <p><code>displayMessage</code></p>
-                    <p>Print out the message</p>
+                    <h4>The code is structured in 3 functions</h4>
+                    <ul>
+                        <li class="py-3">Function<code>getValue</code>: grabs the user inputs,
+                            then converts them in to integers.
+                            1) It checks if the values are numbers by using built-in isInteger function.
+                            1a) Within the if statement, another if statement will check if the
+                            "Stop value is more then 5000". If it is, an error message will pop up.
+                            1b) If any of the "Fizz" or "Buzz" values are equal to 0,
+                            another error message will be thrown.
+                            1c) Otherwise, function <code>generateFizzBuzz</code> is called by passing
+                            the user enetred numbers as parameters.
+                            When <code>generateFizzBuzz</code> returns array of numbers, they are passed to
+                            function<code>displayFizzBuzz</code>
+                            2) If user inputs are not integers, error message pops up.
+                        </li>
+                        <li class="py-3">
+                            The <code>generateFizzBuzz</code> function takes 3 parameters - fizzValue, fuzzValue and
+                            stopValue.
+                            It then declares an empty array 'results'.
+                            In a loop, from 1 to stopValue, it populates the results array with these numbers.
+                            It then check for each element in below order -
+                            1) If the number is completely divisible by fizzValue, and also completely divisible by
+                            fuzzValue,
+                            we replace the number by string 'FizzBuzz'
+                            2) Else if the number is only completely divisble by fizzValue,
+                            we replace the number by string 'Fizz'
+                            3) Else if the number is only completely divisble by fuzzValue,
+                            we replace the number by string 'Fuzz'
+                            4) Otherwise we assign the number to the corresponding 'results' array element.
+                            Finally, the function returns the 'results' array.
+                        </li>
+                        <li>
+                            <code>displayFizzBuzz</code>: This function accepts the results array from generateFizzBuzz
+                            function,
+                            and generates a dynamic table of 5 columns (it creates a new row - tr element after each 5
+                            elements).
+                            The function also checks for the value of each element of the array, and assigns a
+                            specific color based on whether it's 'fizz', 'buzz', 'fizzbuzz' or a regular integer.
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
